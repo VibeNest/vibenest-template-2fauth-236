@@ -2,10 +2,8 @@ services:
   2fauth:
     image: 2fauth/2fauth:latest
     restart: unless-stopped
-    ports:
-      - "8000:8000"
     expose:
-      - "8000"
+    - "8000"
     environment:
       APP_NAME: 2FAuth
       APP_ENV: ${APP_ENV:-production}
@@ -20,7 +18,6 @@ services:
       CACHE_DRIVER: file
       TRUSTED_PROXIES: "*"
     volumes:
-      - 2fauth-data:/2fauth
-
+    - 2fauth-data:/2fauth
 volumes:
   2fauth-data:
